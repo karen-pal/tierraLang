@@ -4,7 +4,7 @@
     <meta charset=UTF-8 />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<script src="https://cdn.jsdelivr.net/npm/videocontext@0.54.0/dist/videocontext.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/videocontext@0.54.0/dist/videocontext.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="editorstyle.css" />
   </head>
@@ -19,16 +19,22 @@
       </div>
     
     <div>
-    <canvas id="canvas" width="1280" height="720" style="width: 852px; height: 480px"></canvas>
+    <canvas id="canvas" width="1920" height="1080" style="width: 1920px; height: 1080px"></canvas>
     <canvas id="dibujo" width="0"></canvas>
 
     </div>
 
     <script>
         let videoCtx;
-        window.onload = function () {
+        let frames = 100;
+        function frameCount () {
+            frames = frames +100;
+        }
+        //setInterval(frameCount, 100)
+        function videoloop(){
             var canvas = document.getElementById("canvas");
-
+            frameCount();
+            console.log(Math.sin(frames), Math.cos(frames) ,Math.tan(frames) )
             videoCtx = new VideoContext(canvas);
             var videoNode1 = videoCtx.video("./impr_arg.mp4");
             videoNode1.start(0);
@@ -39,7 +45,7 @@
 
 
             var crossFade = videoCtx.transition(VideoContext.DEFINITIONS.CROSSFADE);
-            crossFade.transition(2,4,0.0,1.0, "mix");
+            crossFade.transition( Math.abs(Math.sin(frames)), Math.abs(Math.tan(frames)),0.0,1.0, "mix");
 
             videoNode1.connect(crossFade);
             videoNode2.connect(crossFade);
@@ -47,6 +53,10 @@
 
             videoCtx.play();
         };
+        document.getElementById("myButton").onclick = function () {
+            setInterval(videoloop,5000);
+        }
+
 
  function loadScript(url)
                 {    
@@ -56,7 +66,7 @@
                     script.src = url;
                     head.appendChild(script);
                 }
-            loadScript("desaparezco.js");
+            loadScript("./desaparezco.js");
     </script>
   </body>
 </html>

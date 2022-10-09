@@ -14,6 +14,8 @@
         const ctx = canvas.getContext('2d')
         const white = "rgba(200,200,200,.1)"
         const clock = function (ctx, w, h, ast) {
+            //console.log("AAAAAAAAAAAAAAAAAA");
+            /*
                 var x = w/2,
                 y = h/2,
                 // Radii of the white glow.
@@ -23,7 +25,7 @@
                 radius = 260 + 10* b;
 
                 if (ast === undefined) {    //avance natural del tiempo
-                    console.log(r,ctx);
+                    //console.log(r,ctx);
                     ctx.fillStyle = white;
                     ctx.fillRect(0,0, canvas.width,canvas.height);
                 } else {                    // ingreso de un poema
@@ -31,12 +33,12 @@
                     let verso2 = ast[2][0]
                     let verso3 = ast[4][0]
                     let versos = [verso1,verso2,verso3];
-                    console.log("clock:", versos);
+                    //console.log("clock:", versos);
                     let color;
                     for(const verso of versos) {
                         if (verso.type === "verbo"){
                           let r = verso.len;
-                          console.log(r*10) 
+                          //console.log(r*10) 
                           color = "rgba("+(r*10).toString()+",100,"+(r*100).toString()+",.1)";
                           innerRadius += 200;
                         } else {
@@ -56,7 +58,7 @@
                     }
                 }
             r++;g++;b++
-
+*/
         }
 
         setInterval(clock,100,ctx);

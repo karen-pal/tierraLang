@@ -1,0 +1,10 @@
+*.mp4
+*.png
+*.kra
+*.zip
+*.swp
+*__pycache__/*
+*~
+*node_modules*
+*/node_m*
+formal/node_modules*

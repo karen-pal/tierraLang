@@ -2,14 +2,26 @@
 <html>
   <head>
     <meta charset=UTF-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="editorstyle.css" />
   </head>
   <body>
+      <div class="input">
+          {
+            <label class="custom-field" >
+            <input type="text" id="exec_tree" size="70" placeholder="{∅}">
+            <button id="myButton" onclick="buttonCodeTree()">Submit</button>
+            </label>
+          }
+      </div>
     
     <div>
       <video id="video" width="800" src="impr_arg.mp4" autoplay muted loop></video>
       <video id="video2" width="800" src="pampa_galaxy.mp4" autoplay muted loop></video>
       <canvas id="output-canvas" width="800" height="450" ></canvas>
+            <canvas width=1920 height=1080 id="dibujo"/>
     </div>
 
     <script>
@@ -66,6 +78,15 @@
     document.addEventListener("DOMContentLoaded", () => {
       init();
     });
+ function loadScript(url)
+                {    
+                    var head = document.getElementsByTagName('head')[0];
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.src = url;
+                    head.appendChild(script);
+                }
+            loadScript("desaparezco.js");
     </script>
   </body>
 </html>

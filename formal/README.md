@@ -1,9 +1,9 @@
-# Senryu
-lenguaje para interactuar con animaciones
+# tierraLang
+lenguaje 
 
-inspirado en la neblina y en la pintura taoista.
+inspirado en la obra de Horacio Banegas
 
-Pensado para servirles como inicio de lenguajes custom de interconexión
+Pensado para livecodear con letras de Horacio, modificando videos hechos con IA
 
 https://karen-pal.github.io/curso_construcci-n_sentidos/clase8_semantica/desaparezco.html
 
@@ -22,8 +22,7 @@ Luego de escribir sus gramáticas, para generar un parser usen el comando
 `nearleyc poema.ne -o poem.js`
 
 ## testear en la consola
-
-`nearley-test -i "como gotas de rocío#sobre una hoja de loto#desaparezco" poem.js`
+nearley-test -i "brilla#abraza#sopla" poem.js
 
 # Uso de senryu
 levantar el server

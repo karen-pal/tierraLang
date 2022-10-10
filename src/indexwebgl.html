@@ -25,23 +25,35 @@
     </div>
 
     <script>
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
         let videoCtx;
         let frames = 100;
         function frameCount () {
             frames = frames +100;
         }
+        let videos = ["./impr_arg.mp4", "./pampa_galaxy.mp4","ec1.mp4","ec2.mp4"]
         //setInterval(frameCount, 100)
         function videoloop(){
             var canvas = document.getElementById("canvas");
             frameCount();
             console.log(Math.sin(frames), Math.cos(frames) ,Math.tan(frames) )
             videoCtx = new VideoContext(canvas);
-            var videoNode1 = videoCtx.video("./impr_arg.mp4");
-            videoNode1.start(0);
-            videoNode1.stop(6);
-            var videoNode2 = videoCtx.video("./pampa_galaxy.mp4");
-            videoNode2.start(2);
-            videoNode2.stop(6);
+            var videoNode1 = videoCtx.video("./ec2.mp4");
+            let videoNode1Start = 0;//getRandomInt(0,60+23/2);
+            let videoNode1End = getRandomInt(0,60+23)
+            videoNode1.start(videoNode1Start);
+            videoNode1.stop(videoNode1End);
+            console.log("video 1: start: ", videoNode1Start, " end ", videoNode1End)
+            var videoNode2 = videoCtx.video("./ec2flip2.mp4");
+            let videoNode2Start = getRandomInt(0,83/2);
+            let videoNode2End = getRandomInt(0,83)
+            console.log("video 2: start: ", videoNode2Start, " end ", videoNode2End)
+            videoNode2.start(videoNode2Start);
+            videoNode2.stop(videoNode2End);
 
 
             var crossFade = videoCtx.transition(VideoContext.DEFINITIONS.CROSSFADE);
@@ -54,7 +66,7 @@
             videoCtx.play();
         };
         document.getElementById("myButton").onclick = function () {
-            setInterval(videoloop,5000);
+            setInterval(videoloop,getRandomInt(5000,10000));
         }
 
 

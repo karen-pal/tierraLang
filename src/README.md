@@ -1,5 +1,8 @@
-Source: https://redstapler.co/realtime-video-processing-javascript-tutorial/
+index.html: naive implementation with canvas
+https://redstapler.co/realtime-video-processing-javascript-tutorial/
 
+indexweblg: w webgl through videoContext lib
+http://bbc.github.io/VideoContext/api/
 
 # Levantar
 ## local server
@@ -16,3 +19,6 @@ node server.js
 
 ## Chrome y cors
 google-chrome --allow-file-access-from-files index.html
+
+
+
